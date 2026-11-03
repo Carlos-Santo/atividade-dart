@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- O ícone da notificação é referenciado só pelo nome no código Dart;
+     isto impede que o build de release o remova como "não usado". -->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@drawable/ic_notificacao" />
