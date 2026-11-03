@@ -6,7 +6,8 @@ plugins {
 
 android {
     namespace = "br.fatec.localizacoes"
-    compileSdk = flutter.compileSdkVersion
+    // 37 porque o permission_handler_android exige compilar com a API 37.
+    compileSdk = 37
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
