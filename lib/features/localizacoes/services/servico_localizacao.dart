@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -33,7 +34,7 @@ class ServicoLocalizacao {
       case LocationPermission.always:
         // No Android 13+ a notificação do serviço em primeiro plano só
         // aparece na barra se o usuário permitir notificações.
-        await Permission.notification.request();
+        if (!kIsWeb) await Permission.notification.request();
         return StatusPermissao.concedida;
       case LocationPermission.unableToDetermine:
         return StatusPermissao.negada;

@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
@@ -34,6 +35,9 @@ class CacheMapa {
   }
 
   static Future<MapCachingProvider> _criar() async {
+    // No navegador não há pasta privada; o próprio browser faz o cache HTTP.
+    if (kIsWeb) return const DisabledMapCachingProvider();
+
     // Pasta de cache privada: outros apps não acessam e o sistema pode limpá-la.
     final base = await getApplicationCacheDirectory();
     final pasta = Directory(join(base.path, _nomePasta));
